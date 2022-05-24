@@ -17,9 +17,10 @@ public class ATATest {
         final PublicKey tokenMintAddress = new PublicKey("FTkj421DxbS1wajE74J34BJ5a1o9ccA97PkK6mYq9hNQ");
 //        Mint tokenMint = Mint.getMint(client, tokenMintAddress);
         try {
+            Mint mint = Mint.getMint(client, tokenMintAddress);
             PublicKey ataAddress = Mint.getAssociatedTokenAddress(tokenMintAddress, owner);
             AssociatedTokenAccount account = AssociatedTokenAccount.getATA(client, ataAddress);
-            BigDecimal balance = account.getBalance(client);
+            BigDecimal balance = account.getBalance(client, mint);
         } catch (Exception e) {
             e.printStackTrace();
         }

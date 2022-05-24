@@ -33,6 +33,10 @@ public class Transaction {
         messgae.setRecentBlockHash(recentBlockhash);
     }
 
+    public String getBlockhash() {
+        return messgae.getBlockhash();
+    }
+
     public void setFeePayer(PublicKey feePayer) {
         this.feePayer = feePayer;
     }

@@ -9,13 +9,8 @@ import java.util.List;
 import org.p2p.solanaj.core.Account;
 import org.p2p.solanaj.core.PublicKey;
 import org.p2p.solanaj.core.Transaction;
+import org.p2p.solanaj.rpc.types.*;
 import org.p2p.solanaj.rpc.types.ConfigObjects.*;
-import org.p2p.solanaj.rpc.types.AccountInfo;
-import org.p2p.solanaj.rpc.types.ConfirmedTransaction;
-import org.p2p.solanaj.rpc.types.ProgramAccount;
-import org.p2p.solanaj.rpc.types.RecentBlockhash;
-import org.p2p.solanaj.rpc.types.RpcSendTransactionConfig;
-import org.p2p.solanaj.rpc.types.SignatureInformation;
 import org.p2p.solanaj.rpc.types.RpcResultTypes.ValueLong;
 import org.p2p.solanaj.rpc.types.RpcSendTransactionConfig.Encoding;
 import org.p2p.solanaj.ws.SubscriptionWebSocketClient;
@@ -162,6 +157,14 @@ public class RpcApi {
         params.add(lamports);
 
         return client.call("requestAirdrop", params, String.class);
+    }
+
+    public boolean isBlockhashValid(String blockhash) throws RpcException {
+        List<Object> params = new ArrayList<Object>();
+
+        params.add(blockhash);
+
+        return (client.call("isBlockhashValid", params, BlockhashValid.class)).isValid();
     }
 
 }

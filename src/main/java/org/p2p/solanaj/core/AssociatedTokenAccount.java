@@ -48,9 +48,8 @@ public class AssociatedTokenAccount {
         this.tlvData = tlvData;
     }
 
-    public BigDecimal getBalance(RpcClient client) {
-        Mint tokenMint = Mint.getMint(client, this.mint);
-        return tokenMint.convertAmountToHuman(this.amount);
+    public BigDecimal getBalance(RpcClient client, Mint mint) {
+        return mint.convertAmountToHuman(this.amount);
     }
 
 

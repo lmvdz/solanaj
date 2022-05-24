@@ -97,13 +97,13 @@ public class Mint {
 
     public static TransactionInstruction transferSPL(Mint tokenMint, PublicKey fromPublicKey, PublicKey toPublicKey, PublicKey owner, double amount, ArrayList<PublicKey> multiSigners, PublicKey programId) throws Exception {
 
-        PublicKey fromTokenPublicKey = getAssociatedTokenAddress(tokenMint.address, fromPublicKey, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
-        PublicKey toTokenPublicKey = getAssociatedTokenAddress(tokenMint.address, toPublicKey, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
+//        PublicKey fromTokenPublicKey = getAssociatedTokenAddress(tokenMint.address, fromPublicKey, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
+//        PublicKey toTokenPublicKey = getAssociatedTokenAddress(tokenMint.address, toPublicKey, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
 
         ArrayList<AccountMeta> fromTo = new ArrayList<>();
 
-        fromTo.add(new AccountMeta(fromTokenPublicKey, false, true));
-        fromTo.add(new AccountMeta(toTokenPublicKey, false, true));
+        fromTo.add(new AccountMeta(fromPublicKey, false, true));
+        fromTo.add(new AccountMeta(toPublicKey, false, true));
 
         ArrayList<AccountMeta> keys = addSigners(fromTo, owner, multiSigners);
 

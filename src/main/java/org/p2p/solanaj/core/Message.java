@@ -64,6 +64,10 @@ public class Message {
         this.recentBlockhash = recentBlockhash;
     }
 
+    public String getBlockhash() {
+        return this.recentBlockhash;
+    }
+
     public byte[] serialize() {
 
         if (recentBlockhash == null) {
