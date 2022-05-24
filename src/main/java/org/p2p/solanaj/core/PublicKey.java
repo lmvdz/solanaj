@@ -54,6 +54,11 @@ public class PublicKey {
         return toBase58();
     }
 
+    public static boolean isOnCurve(PublicKey key) {
+        return TweetNaclFast.is_on_curve(key.toByteArray()) == 1;
+    }
+
+
     public static PublicKey createProgramAddress(List<byte[]> seeds, PublicKey programId) throws Exception {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
