@@ -22,7 +22,7 @@ public class AssociatedTokenAccount {
     BigInteger amount;
     PublicKey delegate;
     BigInteger delegatedAmount;
-    boolean isInitialized;
+    public boolean isInitialized = false;
     boolean isFrozen;
     boolean isNative;
     BigInteger rentExemptReserve;
@@ -79,7 +79,7 @@ public class AssociatedTokenAccount {
 
 //                System.out.printf("%s %s %s %s %s %s %s %s %s %s %s \n", mint, owner, amount, delegateOption, delegate, state, isNativeOption, isNative, delegatedAmount, closeAuthorityOption, closeAuthority);
 
-                ata = new AssociatedTokenAccount(address, mint, owner, amount, delegateOption == 1 ? delegate : null, delegatedAmount, state == 0, state == 2, isNativeOption == 1, isNativeOption == 1 ? isNative : null, closeAuthorityOption == 1 ? closeAuthority : null, new byte[]{});
+                ata = new AssociatedTokenAccount(address, mint, owner, amount, delegateOption == 1 ? delegate : null, delegatedAmount, state == 1, state == 2, isNativeOption == 1, isNativeOption == 1 ? isNative : null, closeAuthorityOption == 1 ? closeAuthority : null, new byte[]{});
             } catch (IOException e) {
                 e.printStackTrace();
             }
